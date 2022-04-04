@@ -1,0 +1,157 @@
+ul {
+  list-style: none;
+}
+
+.black-border {
+  border: black 1px solid;
+}
+
+.red-border {
+  border: red 1px solid;
+}
+
+/* COMEÇO DOS ESTADOS PRO ITEM */
+
+.sub-hidden {
+  opacity: 0;
+  visibility: hidden;
+  height: 0;
+}
+
+.sub-growing{
+  height:auto;
+  transition: ease-in-out 0.2s;
+}
+
+.sub-showing{
+  opacity: 1;
+  visibility: visible;
+  transition: ease-in-out 0.2s;
+}
+
+.sub-visible{
+  opacity: 1;
+  visibility: visible;
+  transition: ease-in-out 0.2s;
+}
+
+.sub-fading {
+  opacity: 0;
+  visibility: hidden;
+  transition: ease-in-out 0.2s;
+}
+
+.sub-shortening {
+  overflow: hidden;
+  height: 0px;
+  transition: ease-in-out 0.2s;
+}
+
+/* FIM DOS ESTADOS PRO ITEM */
+
+.menu-container{
+
+  cursor: pointer;
+  /* O CODIGO ABAIXO COLOCA O MENU POR CIMA DO ROUTER-OUTLET */
+
+  /* position:absolute;
+  z-index: 2; */
+}
+
+.item-wrapper{
+  background-color: white;
+
+}
+
+.item-wrapper:hover{
+  background-color: #999;
+  transition: ease-in-out 0.2s;
+}
+
+.icon-wrapper{
+  padding: 0 5px 0 5px;
+}
+
+/* COMEÇO DOS ESTADOS PRO MENU */
+
+.parent-hidden {
+  /* LARGURA DO MENU CONTRAÍDO */
+  position:relative;
+  overflow: hidden;
+  width: 30px;
+
+}
+
+.parent-hidden .title-wrapper {
+  /* display:none; */
+  position:absolute;
+  opacity: 0;
+  transition: ease-in-out 0.2s;
+}
+
+
+
+.parent-growing{
+  overflow: hidden;
+  width:140px;
+  transition: ease-in-out 0.2s;
+}
+
+.parent-growing .title-wrapper{
+  position:relative;
+  display:none;
+  visibility: hidden;
+  opacity: 0;
+
+}
+
+.parent-showing{
+  width:140px;
+}
+
+.parent-showing .title-wrapper{
+
+
+}
+
+.parent-visible{
+  width:140px;
+
+}
+
+.parent-visible .title-wrapper{
+  display:inline;
+}
+
+.parent-fading {
+  width: 140px;
+
+}
+
+.parent-fading .title-wrapper{
+  visibility: hidden;
+  opacity: 0;
+  transition: ease-in-out 0.2s;
+}
+
+.parent-shortening {
+  overflow: hidden;
+  width: 30px;
+  transition: ease-in-out 0.2s;
+
+}
+
+.parent-shortening .title-wrapper{
+  visibility: hidden;
+  opacity: 0;
+  position:absolute;
+
+  /* display: none; */
+}
+
+/* FIM DOS ESTADOS PRO MENU */
+
+
+
+
+

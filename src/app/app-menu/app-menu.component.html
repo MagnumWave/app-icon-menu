@@ -1,0 +1,52 @@
+<div (mouseover)="mouseOverHandle(menuObject)"
+      (mouseleave)="mouseLeaveHandle(menuObject)"
+      [ngClass]="{
+        'parent-hidden': menuObject.state==0, 'parent-growing': menuObject.state==1,
+        'parent-showing': menuObject.state==2, 'parent-visible': menuObject.state==3,
+        'parent-fading': menuObject.state==4, 'parent-shortening': menuObject.state==5
+      }"
+      class="menu-container black-border">
+  <div class="d-flex flex-column justify-content-center">
+    <!-- <div routerLink="/first" class="black-border">
+      <span><i class="fa fa-home"></i></span><span class="red-border">Pagina First</span>
+    </div> -->
+
+
+    <div *ngFor="let menuItem of menuObject.data">
+
+        <div class="item-wrapper" [routerLink]='menuItem.routerLink'>
+          <span class="icon-wrapper"><i [class]="menuItem.icon"></i></span>
+          <span class="title-wrapper px-3 mx-auto" (click)="togglaItem(menuItem)">{{menuItem.title}}</span>
+        </div>
+        <!-- se tiver filhos, carrega aqui embaixo -->
+        <div class="sub-item"
+            [ngClass]="{
+              'sub-hidden': menuItem.state==0, 'sub-growing': menuItem.state==1,
+              'sub-showing': menuItem.state==2, 'sub-visible': menuItem.state==3,
+              'sub-fading': menuItem.state==4, 'sub-shortening': menuItem.state==5
+            }"
+            *ngIf="menuItem.hasChildren">
+
+          <div *ngFor="let menuSubItem of menuItem.children.data">
+            <div>
+              <span class="icon-wrapper">-<i [class]="menuSubItem.icon"></i></span>
+              <span class="title-wrapper px-3 mx-auto" (click)="togglaItem(menuSubItem)">{{menuSubItem.title}}</span>
+            </div>
+
+          </div>
+
+        </div>
+    </div>
+
+
+
+
+
+  </div>
+</div>
+
+<!-- <div>
+  <button (click)="logaPeloMenu()">Click Log</button>
+</div> -->
+
+
